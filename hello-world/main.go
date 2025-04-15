@@ -6,14 +6,22 @@ import (
 )
 
 func main() {
-	name, score := "Kiran", 85
 
-	students := []string{"Dent", "Arthur"}
-	scores := []int{50, 75}
+	type score struct {
+		name string
+		score int
+	}
+
+	scores := []score {
+		{"Dent", 50},
+		{"Arthur", 75},
+		{"Kiran", 85},
+	}
 
 	fmt.Println("Student scores")
 	fmt.Println(strings.Repeat("-", 20))
-	fmt.Println(name, ":", score)
-	fmt.Println(students[0], ":", scores[0])
-	fmt.Println(students[1], ":", scores[1])
+
+	for _, s := range scores {
+		fmt.Printf("%s: %d\n", s.name, s.score)
+	}
 }
