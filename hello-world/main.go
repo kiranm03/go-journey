@@ -5,19 +5,28 @@ import (
 	"strings"
 )
 
+type studentScore struct {
+	name string
+	score int
+}
+
 func main() {
 
-	type score struct {
-		name string
-		score int
-	}
-
-	scores := []score {
+	scores := []studentScore {
 		{"Dent", 50},
 		{"Arthur", 75},
 		{"Kiran", 85},
+		addStudent("John", 65),
 	}
 
+	printReport(scores)
+}
+
+func addStudent(name string, score int) studentScore {
+	return studentScore{ name, score }
+}
+
+func printReport(scores []studentScore) {
 	fmt.Println("Student scores")
 	fmt.Println(strings.Repeat("-", 20))
 
